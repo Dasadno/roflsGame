@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp2
 {
-    internal class character
+    internal class Character
     {
-        private static character instance;
-        private character() { }
-        public static character getInstance()
+        private static Character instance;
+        private Character() { }
+        public static Character getInstance()
         {
             if (getInstance() == null)
-                instance = new character();
+                instance = new Character();
             return instance;
         }
         public void setName(string arg)
@@ -38,12 +38,37 @@ namespace ConsoleApp2
             armor_ = arm; 
         }
 
+        public void setLvl(float lvl)
+        {
+            lvl_ = lvl;
+        }
+
+        public void popLvl(float exp)
+        {
+            lvl_ += exp;
+        }
+
         public int getDmg() { return damage_; }
         public int getArm() { return armor_; }
         public int getHP() { return hp_; }
         public string getName() { return name_; }
+        public float getLvl() { return lvl_; }
 
-        public void tryHit(monster enemy)
+        public void getHealthInf() 
+        {
+            Console.WriteLine($"You have {hp_ + BASIC_HP_} Health");
+        }
+        public void getArmorInf()
+        {
+            Console.WriteLine($"You have {armor_ + BASIC_ARMOR_} armor");
+        }
+        public void getDamageInf()
+        {
+            Console.WriteLine($"You have {damage_ + BASIC_DMG_} damage");
+        }
+
+
+        public void tryHit(Enemy enemy)
         {
             setDmg(0);
             Random r = new Random();
@@ -68,6 +93,17 @@ namespace ConsoleApp2
             enemy.setHP(enemy.getHP() - damage_);
             Console.WriteLine($"-{damage_} hp");
             Console.WriteLine($"Nice hit!, now monster have only {enemy.getHP()} hp!");
+            
+        }
+
+        static public void GettingHit(Enemy enemy, Character character)
+        {
+            character.hp_ -= enemy.getDmg();
+            if (enemy.getDmg() > 1) 
+            {
+                Console.WriteLine("Ouch, it hurts");
+            }
+            character.getHealthInf();
         }
 
 
@@ -80,6 +116,7 @@ namespace ConsoleApp2
         private int hp_;
         private int armor_;
         private int damage_;
+        private float lvl_;
         
         private string name_;
     }
