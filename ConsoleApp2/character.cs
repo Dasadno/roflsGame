@@ -48,6 +48,7 @@ namespace ConsoleApp2
             lvl_ += exp;
         }
 
+       
         public int getDmg() { return damage_; }
         public int getArm() { return armor_; }
         public int getHP() { return hp_; }
@@ -72,6 +73,7 @@ namespace ConsoleApp2
         {
             setDmg(0);
             Random r = new Random();
+           
             int HitTry = r.Next(1, 6);
             if (HitTry == 1)
             {
@@ -92,7 +94,18 @@ namespace ConsoleApp2
             
             enemy.setHP(enemy.getHP() - damage_);
             Console.WriteLine($"-{damage_} hp");
-            Console.WriteLine($"Nice hit!, now monster have only {enemy.getHP()} hp!");
+            if (enemy.getHP() > 0)
+            {
+                Console.WriteLine($"Nice hit!, now monster have only {enemy.getHP()} hp!");
+            }
+            else
+            {
+                Console.WriteLine("oh, you're killed him :(");
+                setLvl(enemy.getLvl() / LVL_DIV_COEFFICIENT);
+                Console.WriteLine($"you got {enemy.getLvl() / LVL_DIV_COEFFICIENT} exp, now your lvl is {getLvl()}");
+            }
+            
+            
             
         }
 
@@ -108,6 +121,7 @@ namespace ConsoleApp2
 
 
 
+        private const int LVL_DIV_COEFFICIENT = 9;
 
         private const int BASIC_DMG_ = 2;
         private const int BASIC_ARMOR_ = 1;

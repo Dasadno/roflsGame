@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,7 +11,17 @@ namespace ConsoleApp2
     
     internal class Enemy
     {
-        public void setName(string arg)
+        public Enemy() { }
+
+        public Enemy(String name) 
+        {
+            name_ = name;
+            lvl_ = 0;
+            damage_ = 0;
+            armor_ = 0;
+            hp_ = 1;
+        }
+        public void setName(String arg)
         {
             name_ = arg;
         }
@@ -34,6 +46,14 @@ namespace ConsoleApp2
             lvl_ = lvl;
         }
 
+        public void setAll(String name, int hp, int dmg, int arm, float lvl)
+        {
+            name_ = name;
+            hp_ = hp;
+            int dmg_ = dmg;
+            int arm_ = arm;
+            float lvl_ = lvl;
+        }
         public void popLvl(float exp)
         {
             lvl_ += exp;
@@ -42,7 +62,7 @@ namespace ConsoleApp2
         public int getDmg() { return damage_; }
         public int getArm() { return armor_; }
         public int getHP() { return hp_; }
-        public string getName() { return name_; }
+        public String getName() { return name_; }
         public float getLvl() { return lvl_; }
 
         public void tryHit()
@@ -68,16 +88,16 @@ namespace ConsoleApp2
             }
         }
 
-        public int Death()
+        static public void Death(Enemy enemy)
         {
-
+            enemy = null;
         }
 
 
         private int hp_;
         private int armor_;
         private int damage_;
-        private float lvl_;
-        private string name_;
+        private float lvl_; // lvl can't be larger than 80 
+        private String name_;
     }
 }

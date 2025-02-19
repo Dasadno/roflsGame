@@ -10,7 +10,14 @@ namespace ConsoleApp2
     {
         static void Main(string[] args)
         {
+            Enemy enemy;
+            enemy = new Enemy();
+            enemy.setAll("murl", 5, 2, 1, 3f);
+
             
+            Character character = new Character();
+            
+
         }   
     }
 }
