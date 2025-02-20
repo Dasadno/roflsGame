@@ -28,23 +28,54 @@ namespace ConsoleApp2
         public void CreateEnemy()
         {
             Enemy enemy = new Enemy();
-            if (Character.getInstance().getLvl() < 5)
+            Enemy.setTemplName(enemy);
+            Random r = new Random();
+            if (Character.getInstance().getLvl() < 30)
             {
-               
+                int RandNum1 = r.Next(1, 3);
+                int RandNum2 = r.Next(1, 3);
+                int RandNum3 = r.Next(1, 3);
+                int RandNum4 = r.Next(1, 10);
+
+                enemy.setAll(RandNum1, RandNum2, RandNum3, RandNum4);
             }
-            
+
+            else if (Character.getInstance().getLvl() < 60 && Character.getInstance().getLvl() > 30)
+            {
+                int RandNum1 = r.Next(1, 12);
+                int RandNum2 = r.Next(1, 5);
+                int RandNum3 = r.Next(1, 5);
+                int RandNum4 = r.Next(1, 40);
+
+                enemy.setAll(RandNum1, RandNum2, RandNum3, RandNum4);
+            }
+            else if (Character.getInstance().getLvl() < 80 && Character.getInstance().getLvl() > 60)
+            {
+                int RandNum1 = r.Next(1, 25);
+                int RandNum2 = r.Next(1, 10);
+                int RandNum3 = r.Next(1, 10);
+                int RandNum4 = r.Next(1, 70);
+
+                enemy.setAll(RandNum1, RandNum2, RandNum3, RandNum4);
+            }
+            else if (Character.getInstance().getLvl() < 80 && Character.getInstance().getLvl() > 60 )
+            {
+                int RandNum1 = r.Next(1, 25);
+                int RandNum2 = r.Next(1, 10);
+                int RandNum3 = r.Next(1, 10);
+                int RandNum4 = r.Next(1, 70);
+
+                enemy.setAll(RandNum1, RandNum2, RandNum3, RandNum4);
+            }
+
         }
         public void Start()
         {
-            
+
 
             CreateChar();
 
             char ch = Convert.ToChar(Console.ReadKey());
         }
-
-        private const int D16_SIZE = 16;
-        
-
     }
 }
