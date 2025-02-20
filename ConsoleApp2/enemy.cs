@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace ConsoleApp2
 {
     
-    internal class Enemy
+    public class Enemy
     {
         public Enemy() { }
 
@@ -99,5 +99,6 @@ namespace ConsoleApp2
         private int damage_;
         private float lvl_; // lvl can't be larger than 80 
         private String name_;
+       
     }
 }

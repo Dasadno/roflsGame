@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp2
 {
-    internal class Character
+    public class Character
     {
         private static Character instance;
-        private Character() { }
+        public Character() { }
         public static Character getInstance()
         {
-            if (getInstance() == null)
+            if (instance == null)
                 instance = new Character();
             return instance;
         }
