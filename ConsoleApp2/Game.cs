@@ -44,16 +44,7 @@ namespace ConsoleApp2
         }
 
         private const int D16_SIZE = 16;
-        private enum ENEMY_NAMES
-        {
-            bob,
-            mike,
-            goodboy,
-            rizzard,
-            larry,
-            watermelon,
-            arbyz,
-        }
+        
 
     }
 }
