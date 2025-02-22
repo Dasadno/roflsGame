@@ -9,10 +9,22 @@ using System.Threading.Tasks;
 namespace ConsoleApp2
 {
     
-    public class Enemy
+    public class Enemy : IMovable
     {
         public Enemy() { }
 
+
+        void IMovable.Move()
+        {
+            IMovable.speed_ = 45;
+            IMovable.x_asic_ += 45;
+            Stop();
+        }
+
+        void Stop()
+        {
+            IMovable.speed_ = 0;
+        }
         public Enemy(String name) 
         {
             name_ = name;

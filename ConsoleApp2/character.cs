@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp2
 {
-    public class Character
+    public class Character : IMovable
     {
         private static Character instance;
         public Character() { }
@@ -18,6 +18,19 @@ namespace ConsoleApp2
                 instance = new Character();
             return instance;
         }
+
+        void IMovable.Move()
+        {
+            IMovable.speed_ = 45;
+            IMovable.x_asic_ += 45;
+            Stop();
+        }
+
+        void Stop()
+        {
+            IMovable.speed_ = 0;
+        }
+
         public void setName(string arg)
         {
             name_ = arg;
