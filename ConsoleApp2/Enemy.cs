@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace ConsoleApp2
 {
     
-    public class Enemy
+    public class Enemy : IMovable
     {
         public Enemy() { }
 
@@ -26,11 +26,21 @@ namespace ConsoleApp2
             name_ = arg;
         }
 
-        public void setTemplName()
+        static public void setTemplName(Enemy e)
         {
             Random r = new Random();
             int RNUM = r.Next(1, 7);
-         
+            switch (RNUM)
+            {
+                case 1: e.setName(Convert.ToString(ENEMY_NAMES.larry)); break;
+                case 2: e.setName(Convert.ToString(ENEMY_NAMES.watermelon)); break;
+                case 3: e.setName(Convert.ToString(ENEMY_NAMES.bob)); break;
+                case 4: e.setName(Convert.ToString(ENEMY_NAMES.goodboy)); break;
+                case 5: e.setName(Convert.ToString(ENEMY_NAMES.arbyz)); break;
+                case 6: e.setName(Convert.ToString(ENEMY_NAMES.rizzard)); break;
+                case 7: e.setName(Convert.ToString(ENEMY_NAMES.mike)); break;
+
+            }
         }
 
         public void setHP(int hp)
@@ -53,9 +63,8 @@ namespace ConsoleApp2
             lvl_ = lvl;
         }
 
-        public void setAll(String name, int hp, int dmg, int arm, float lvl)
+        public void setAll(int hp, int dmg, int arm, float lvl)
         {
-            name_ = name;
             hp_ = hp;
             int dmg_ = dmg;
             int arm_ = arm;
