@@ -18,6 +18,17 @@ namespace ConsoleApp2
                 instance = new Character();
             return instance;
         }
+
+        void IMovable.Move()
+        {
+            IMovable.speed_ = 45;
+        }
+
+        void Stop()
+        {
+            IMovable.speed_ = 0;
+        }
+
         public void setName(string arg)
         {
             name_ = arg;

@@ -13,6 +13,17 @@ namespace ConsoleApp2
     {
         public Enemy() { }
 
+       
+        void IMovable.Move()
+        {
+            IMovable.speed_ = 45;
+        }
+        
+        void Stop()
+        {
+            IMovable.speed_ = 0;
+        }
+
         public Enemy(String name) 
         {
             name_ = name;
