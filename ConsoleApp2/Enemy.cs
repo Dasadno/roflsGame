@@ -13,17 +13,18 @@ namespace ConsoleApp2
     {
         public Enemy() { }
 
-       
+
         void IMovable.Move()
         {
-            IMovable.speed_ = 45;
-        }
-        
-        void Stop()
-        {
-            IMovable.speed_ = 0;
+            speed_ = 45;
+            xAsic_ += 45;
+            Stop();
         }
 
+        void Stop()
+        {
+            speed_ = 0;
+        }
         public Enemy(String name) 
         {
             name_ = name;
@@ -126,6 +127,9 @@ namespace ConsoleApp2
         private int damage_;
         private float lvl_; // lvl can't be larger than 80 
         private String name_;
+
+        private int speed_;
+        private int xAsic_;
 
         private enum ENEMY_NAMES
         {

@@ -21,12 +21,15 @@ namespace ConsoleApp2
 
         void IMovable.Move()
         {
-            IMovable.speed_ = 45;
+            speed_ = 45;
+            xAsic_ += 45;
+
+            Stop();
         }
 
         void Stop()
         {
-            IMovable.speed_ = 0;
+            speed_ = 0;
         }
 
         public void setName(string arg)
@@ -138,11 +141,15 @@ namespace ConsoleApp2
         private const int BASIC_ARMOR_ = 1;
         private const int BASIC_HP_ = 3;
 
+       
         private int hp_;
         private int armor_;
         private int damage_;
         private float lvl_;
         
         private string name_;
+
+        private int speed_;
+        private int xAsic_ = 0;
     }
 }
